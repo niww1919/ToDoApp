@@ -13,11 +13,14 @@
 
 
         <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="text"
             />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bottomAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
