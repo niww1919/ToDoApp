@@ -64,4 +64,10 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         preferences.edit().putStringSet(DATA_KEY, stringSet).apply();
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+//        preferences.edit().putStringSet(DATA_KEY, stringSet).apply();
+    }
 }
