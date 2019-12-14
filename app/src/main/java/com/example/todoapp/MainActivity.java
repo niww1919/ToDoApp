@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     Set<String> stringSet;
     AppCompatEditText editText;
     AppCompatButton button;
+    PreferenceWrapper preferenceWrapper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         editText = findViewById(R.id.et);
         button = findViewById(R.id.bottomAdd);
         preferences = getSharedPreferences("Preference", Context.MODE_PRIVATE);
+
+        preferenceWrapper = new PreferenceWrapper(this);
 
         stringSet = preferences.getStringSet(DATA_KEY, new HashSet<String>());
         Log.i("Log", String.valueOf(stringSet.size()));
@@ -62,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        preferences.edit().putStringSet(DATA_KEY, stringSet).apply();
+//        preferences.edit().putStringSet(DATA_KEY, stringSet).apply();
+        preferenceWrapper.setTextStringSet(this,stringSet);
     }
 
     @Override
